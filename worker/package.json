@@ -1,0 +1,40 @@
+{
+  "name": "casino-worker-100x",
+  "version": "1.0.0",
+  "description": "Casino balance adjustment worker with Redis queue processing",
+  "main": "worker.js",
+  "type": "module",
+  "scripts": {
+    "start": "node worker.js",
+    "api": "node api.js",
+    "dev": "node --watch worker.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.29.0",
+    "@pythnetwork/pyth-evm-js": "^1.53.0",
+    "@sentry/cli": "^2.50.2",
+    "@sentry/node": "^9.42.0",
+    "@solana/web3.js": "^1.95.0",
+    "@supabase/supabase-js": "^2.39.3",
+    "@upstash/redis": "^1.35.0",
+    "bs58": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2",
+    "tiny-lru": "^11.2.6",
+    "tweetnacl": "^1.0.3"
+  },
+  "keywords": [
+    "casino",
+    "gaming",
+    "redis",
+    "worker",
+    "balance",
+    "atomic"
+  ],
+  "author": "Casino Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

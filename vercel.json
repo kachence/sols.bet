@@ -1,0 +1,39 @@
+{
+  "functions": {
+    "src/pages/api/getbalance.ts": {
+      "memory": 1024,
+      "maxDuration": 10
+    },
+    "src/pages/api/live-wins.ts": {
+      "memory": 1024,
+      "maxDuration": 10
+    },
+    "src/pages/api/balance_adj.ts": {
+      "memory": 1536,
+      "maxDuration": 20
+    },
+    "src/pages/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "regions": ["fra1"],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization, X-API-Key"
+        }
+      ]
+    }
+  ]
+} 

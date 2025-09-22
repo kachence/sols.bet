@@ -1,0 +1,19 @@
+[package]
+name = "smart_vault_v2"
+version = "0.1.0"
+description = "Smart Vault V2 with Migration and Batch Settlement"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "smart_vault_v2"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.29.0"

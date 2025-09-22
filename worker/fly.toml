@@ -1,0 +1,64 @@
+# fly.toml app configuration file generated for casino-worker-v2
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "casino-worker-v2"
+primary_region = "fra"
+kill_signal = "SIGINT"
+kill_timeout = "30s"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  NODE_ENV = "production"
+  # Add non-sensitive environment variables here, for example:
+  # LOG_LEVEL = "info"
+  # TIMEOUT_MS = "30000"
+  # DEBUG_MODE = "false"
+
+[processes]
+  worker = "node worker.js"
+  api = "node api.js"
+
+# Health checks
+[checks]
+  [checks.worker_health]
+    processes = ["worker"]
+    type = "http"
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "10s"
+    method = "get"
+    path = "/health"
+    port = 3000
+
+  [checks.api_health]
+    processes = ["api"]
+    type = "http"
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "10s"
+    method = "get"
+    path = "/health"
+    port = 8080
+
+# HTTP service for API
+[[services]]
+  processes = ["api"]
+  protocol = "tcp"
+  internal_port = 8080
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+
+  [[services.ports]]
+    port = 443
+    handlers = ["http", "tls"]
+
+# Resource allocation
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

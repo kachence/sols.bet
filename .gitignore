@@ -1,0 +1,24 @@
+trash.*
+.DS_Store
+node_modules
+dist
+dev-dist
+.env
+.next
+.vercel
+*.so
+
+# Keep essential JSON files tracked
+!package.json
+!package-lock.json
+!tsconfig.json
+!components.json
+!vercel.json
+!worker/package.json
+!worker/package-lock.json
+
+# Ignore sensitive/generated JSON files
+contract/src/idl.json
+contract/src/program-keypair.json
+contract/tests/wallets.json
+worker/idl.json

@@ -1,0 +1,457 @@
+@import './fonts.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout Shift Prevention */
+img, video, iframe {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Prevent layout shifts from loading images */
+img[width][height] {
+  height: auto;
+}
+
+/* Ensure font fallbacks prevent layout shifts */
+.font-heading {
+  font-family: 'Orbitron', 'Arial Black', system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: 'Exo 2', 'Segoe UI', system-ui, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  color: white;
+  background: #2B0F54; /* Deep Galactic Blue */
+  font-feature-settings: 'cv11', 'ss01';
+  font-variation-settings: 'opsz' 32;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #2B0F54; /* Deep Galactic Blue */
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #FFC700; /* Rich Gold */
+  border-radius: 4px;
+  border: 2px solid #2B0F54;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #CC9F00; /* Darker Rich Gold */
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: thin;     /* Firefox */
+  scrollbar-color: #FFC700 #2B0F54; /* Firefox - Rich Gold on Deep Galactic Blue */
+}
+
+/* Form elements */
+input, textarea, select {
+  color: white;
+  background: #2B0F54; /* Deep Galactic Blue */
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #BD00FF; /* Neon Purple */
+  box-shadow: 0 0 0 1px #BD00FF;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Links */
+a {
+  color: #FFC700; /* Rich Gold */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #E6B300; /* Darker Rich Gold */
+}
+
+/* Navigation links should be white and bold */
+nav a {
+  color: white;
+  font-weight: bold;
+}
+
+text-darkLuxuryPurple {
+  color: #1E1733;
+}
+
+nav a:hover {
+  color: #FFC700;
+}
+
+/* Force white and bold text for header navigation */
+header nav a {
+  color: white;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  color: #FFC700;
+}
+
+/* Force white and bold text for footer navigation */
+footer nav a {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+footer nav a:hover {
+  color: #FFC700 !important;
+}
+
+/* Selection */
+::selection {
+  background: #BD00FF33; /* Neon Purple with transparency */
+  color: white;
+}
+
+/* Custom utility classes */
+.bg-primary {
+  @apply bg-[#BD00FF]; /* Neon Purple */
+}
+
+.bg-secondary {
+  @apply bg-[#15FFFF]; /* Electric Cyan */
+}
+
+.bg-dark {
+  @apply bg-[#2B0F54]; /* Deep Galactic Blue */
+}
+
+.bg-accent {
+  @apply bg-[#FF179B]; /* Neon Pink */
+}
+
+.text-primary {
+  @apply text-[#BD00FF]; /* Neon Purple */
+}
+
+.border-primary {
+  @apply border-[#BD00FF]; /* Neon Purple */
+}
+
+/* Typography */
+.text-gradient {
+  background: linear-gradient(135deg, #BD00FF 0%, #FF179B 100%); /* Neon Purple to Neon Pink */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Typography - Using Tailwind's @layer base for proper loading */
+@layer base {
+  html {
+    font-family: 'Satoshi', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  
+  body {
+    font-family: 'Satoshi', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  .font-heading {
+    font-family: 'Changa One', cursive, 'Satoshi', system-ui, sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Changa One', cursive, 'Satoshi', system-ui, sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+  }
+
+  /* Logo specific styling */
+  .logo {
+    font-family: 'Changa One', cursive, 'Satoshi', system-ui, sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+  }
+
+  /* Force Changa One for specific elements */
+  h1.font-heading,
+  h2.font-heading,
+  h3.font-heading,
+  .logo,
+  span.logo {
+    font-family: 'Changa One', cursive !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+  }
+
+  /* Debug: Force all headings and logos to use Changa One */
+  h1, h2, h3, h4, h5, h6,
+  .font-heading,
+  .logo,
+  span.logo,
+  [class*="heading"],
+  [class*="logo"] {
+    font-family: 'Changa One', 'Comic Sans MS', cursive !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1 !important;
+  }
+
+  /* Specific logo alignment fixes */
+  .logo,
+  span.logo {
+    display: flex !important;
+    align-items: center !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+    transform: translateY(-3px) !important; /* Fine-tune vertical position */
+  }
+}
+
+/* Layout components */
+html {
+  @apply min-h-screen bg-[#2B0F54] text-white; /* Deep Galactic Blue */
+}
+
+/* Card components */
+.card-container {
+  @apply bg-[#2B0F54] rounded-lg p-6 border border-[#374151]; /* Deep Galactic Blue */
+}
+
+.card-hover {
+  @apply bg-[#2B0F54] rounded-lg p-4 border border-gray-700 transition-all duration-200; /* Deep Galactic Blue */
+}
+
+.card-hover:hover {
+  @apply border-[#BD00FF] shadow-neon; /* Neon Purple border and glow */
+}
+
+/* Special effects */
+.shadow-neon {
+  box-shadow: 0 0 20px rgba(189, 0, 255, 0.3); /* Neon Purple glow */
+}
+
+.shadow-neon-lg {
+  box-shadow: 0 0 40px rgba(189, 0, 255, 0.4); /* Neon Purple glow large */
+}
+
+.shadow-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.shadow-card-hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Backdrop blur effects */
+.backdrop-blur-custom {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Animations */
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 159, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 159, 0.6);
+  }
+}
+
+.neon-pulse {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-[#BD00FF] text-white px-6 py-3 rounded-lg font-bold transition-all duration-200; /* Neon Purple */
+}
+
+.btn-primary:hover {
+  @apply bg-[#9900CC] shadow-neon; /* Darker Neon Purple with glow */
+}
+
+.btn-primary:active {
+  @apply scale-95;
+}
+
+.btn-secondary {
+  @apply bg-[#15FFFF] text-[#2B0F54] px-6 py-3 rounded-lg font-bold transition-all duration-200; /* Electric Cyan */
+}
+
+.btn-secondary:hover {
+  @apply bg-[#00C4CC] shadow-neon-cyan; /* Darker Electric Cyan */
+}
+
+.btn-secondary:active {
+  @apply scale-95;
+}
+
+/* Modal styles */
+.modal-content {
+  @apply bg-[#0c0f1a] border border-[#1a2332] rounded-xl p-6 max-w-md mx-auto;
+}
+
+/* Game specific effects */
+.button-press {
+  transition: all 0.1s ease;
+}
+
+.button-press:active {
+  transform: scale(0.98);
+}
+
+.sparkle-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkle-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.sparkle-effect:hover::before {
+  left: 100%;
+}
+
+/* Game result animations */
+.win-animation {
+  animation: bounce-in 0.6s ease-out;
+}
+
+.lose-animation {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .card-container {
+    @apply p-4;
+  }
+  
+  .btn-primary, .btn-secondary {
+    @apply px-4 py-2 text-sm;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  body {
+    color-scheme: dark;
+  }
+}
+
+/* Performance optimizations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .neon-pulse {
+    animation: none;
+  }
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #00ff9f;
+  outline-offset: 2px;
+}
+
+/* Remove focus outline for specific interactive buttons */
+button:focus,
+button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Print styles */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}
+
